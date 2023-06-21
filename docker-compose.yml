@@ -2,9 +2,9 @@ version: '2'
 volumes:
   settings:
 services:
-  Clock:
+  kiosk:
     restart: always
-    build: ./Clock
+    build: ./kiosk
     privileged: true
     ports:
       - 5011:5011
