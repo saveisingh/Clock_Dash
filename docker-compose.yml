@@ -1,0 +1,21 @@
+version: '2'
+volumes:
+  settings:
+services:
+  Clock:
+    restart: always
+    build: ./Clock
+    privileged: true
+    ports:
+      - 5011:5011
+    volumes:
+      - 'settings:/data'
+  scheduler:
+    restart: always
+    build: ./scheduler
+    privileged: true
+  fbcp:
+    build: ./fbcp
+    restart: on-failure
+    privileged: true
+ 
